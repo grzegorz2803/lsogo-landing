@@ -6,9 +6,9 @@ import { landingContent } from "./content/landingContent";
 import { useState } from "react";
 
 function App() {
-  const { brand, nav, hero, features, premiere, contact, footer } =
-    landingContent;
+  const { brand, nav, hero, features, premiere, contact } = landingContent;
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
+  const [pilotModalOpen, setPilotModalOpen] = useState(false);
   return (
     <div className="relative min-h-screen w-full overflow-x-hidden">
       <div className="absolute inset-0 opacity-40">
@@ -181,6 +181,13 @@ function App() {
               </div>
 
               <p className="mt-6 text-lg text-amber-300">{premiere.pilot}</p>
+              <button
+                type="button"
+                onClick={() => setPilotModalOpen(true)}
+                className="mt-3 flex text-sm font-medium text-amber-200 underline decoration-amber-300/40 underline-offset-4 transition hover:text-amber-100 hover:decoration-amber-200"
+              >
+                Zobacz zasady pilotażu
+              </button>
               <Button href="#kontakt" className="mt-6">
                 Zgłoś parafię do pilotażu
               </Button>
@@ -214,8 +221,87 @@ function App() {
       </main>
 
       <footer className="border-t border-white/10 py-8 text-center text-sm text-slate-400">
-        {footer}
+        <div className="flex flex-col items-center gap-2">
+          <p>© {new Date().getFullYear()} LSOgo. Wszelkie prawa zastrzeżone.</p>
+          <div className="flex gap-4">
+            <a href="#" className="hover:text-amber-300! transition">
+              Polityka prywatności
+            </a>
+            <a href="#" className="hover:text-amber-300! transition">
+              Kontakt
+            </a>
+          </div>
+        </div>
       </footer>
+      {pilotModalOpen && (
+        <div
+          className="fixed inset-0 z-[100] flex items-center justify-center bg-slate-950/75 px-4 backdrop-blur-sm"
+          onClick={() => setPilotModalOpen(false)}
+        >
+          <div
+            className="relative w-full max-w-2xl rounded-[2rem] border border-amber-300/15 bg-slate-950/95 p-6 shadow-[0_0_50px_rgba(2,6,23,0.45)] md:p-8"
+            onClick={(e) => e.stopPropagation()}
+          >
+            <button
+              type="button"
+              onClick={() => setPilotModalOpen(false)}
+              className="absolute right-4 top-4 inline-flex h-10 w-10 items-center justify-center rounded-full border border-white/10 bg-white/5 text-slate-200 transition hover:bg-white/10 hover:text-white"
+              aria-label="Zamknij modal"
+            >
+              ✕
+            </button>
+
+            <p className="text-sm font-medium uppercase tracking-[0.24em] text-amber-300/75">
+              Pilotaż LSOgo
+            </p>
+
+            <h3 className="mt-4 text-3xl font-semibold text-amber-100 md:text-4xl">
+              Zasady pilotażu
+            </h3>
+
+            <div className="mt-6 space-y-4 text-base leading-7 text-slate-300">
+              <p>
+                Pilotaż przeznaczony jest dla parafii, które chcą przetestować
+                system LSOgo przed jego oficjalną premierą.
+              </p>
+              <p>
+                Udział w pilotażu jest bezpłatny. W zamian zależy nam na
+                krótkiej opinii, sugestiach i realnym sprawdzeniu działania
+                systemu w parafii.
+              </p>
+              <p>
+                Zakres pilotażu oraz czas jego trwania będą ustalane
+                indywidualnie, zależnie od potrzeb parafii i aktualnego etapu
+                rozwoju projektu.
+              </p>
+              <p>
+                Pilotaż nie oznacza jeszcze komercyjnego wdrożenia i może
+                obejmować wybrane funkcje systemu.
+              </p>
+              <p>
+                Zgłoszenie parafii do pilotażu nie wiąże się z żadnym
+                zobowiązaniem finansowym.
+              </p>
+            </div>
+
+            <div className="mt-8 flex flex-col gap-3 sm:flex-row">
+              <Button href="#kontakt" onClick={() => setPilotModalOpen(false)}>
+                Zgłoś parafię
+              </Button>
+              <Button
+                href="#"
+                variant="secondary"
+                onClick={(e) => {
+                  e.preventDefault();
+                  setPilotModalOpen(false);
+                }}
+              >
+                Zamknij
+              </Button>
+            </div>
+          </div>
+        </div>
+      )}
     </div>
   );
 }

@@ -65,5 +65,5 @@ export const landingContent = {
     text: "Jeśli chcesz zapytać o projekt, planowane wdrożenie albo możliwość kontaktu w sprawie współpracy, napisz wiadomość.",
     email: "listwan94@gmail.com",
   },
-  footer: "LSOgo — strona zapowiedź projektu",
+  footer: "© 2026 LSOgo. Wszelkie prawa zastrzeżone.",
 };
