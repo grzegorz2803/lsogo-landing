@@ -9,9 +9,10 @@ function App() {
   const { brand, nav, hero, features, premiere, contact } = landingContent;
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const [pilotModalOpen, setPilotModalOpen] = useState(false);
+  const [privacyModalOpen, setPrivacyModalOpen] = useState(false);
   return (
     <div className="relative min-h-screen w-full overflow-x-hidden">
-      <div className="absolute inset-0 opacity-40">
+      <div className="absolute inset-0 opacity-40 pointer-events-none">
         <div className="absolute left-[-10%] top-[10%] h-72 w-72 rounded-full bg-amber-400/8 blur-3xl" />
         <div className="absolute bottom-[5%] right-[-5%] h-80 w-80 rounded-full bg-amber-300/8 blur-3xl" />
       </div>
@@ -224,15 +225,100 @@ function App() {
         <div className="flex flex-col items-center gap-2">
           <p>© {new Date().getFullYear()} LSOgo. Wszelkie prawa zastrzeżone.</p>
           <div className="flex gap-4">
-            <a href="#" className="hover:text-amber-300! transition">
+            <button
+              type="button"
+              onClick={() => setPrivacyModalOpen(true)}
+              className="cursor-pointer bg-transparent p-0 transition hover:text-amber-300"
+            >
               Polityka prywatności
-            </a>
-            <a href="#" className="hover:text-amber-300! transition">
+            </button>
+            <a href="#kontakt" className="transition hover:text-amber-300">
               Kontakt
             </a>
           </div>
         </div>
       </footer>
+      {privacyModalOpen && (
+        <div
+          className="fixed inset-0 z-[110] flex items-center justify-center bg-slate-950/80 px-4 backdrop-blur-sm"
+          onClick={() => setPrivacyModalOpen(false)}
+        >
+          <div
+            className="relative w-full max-w-3xl rounded-[2rem] border border-white/10 bg-slate-950/95 p-6 shadow-[0_0_50px_rgba(2,6,23,0.45)] md:p-8"
+            onClick={(e) => e.stopPropagation()}
+          >
+            <button
+              type="button"
+              onClick={() => setPrivacyModalOpen(false)}
+              className="absolute right-4 top-4 inline-flex h-10 w-10 items-center justify-center rounded-full border border-white/10 bg-white/5 text-slate-200 transition hover:bg-white/10 hover:text-white"
+              aria-label="Zamknij politykę prywatności"
+            >
+              ✕
+            </button>
+
+            <p className="text-sm font-medium uppercase tracking-[0.24em] text-amber-300/75">
+              LSOgo
+            </p>
+
+            <h3 className="mt-4 text-3xl font-semibold text-amber-100 md:text-4xl">
+              Polityka prywatności
+            </h3>
+
+            <div className="mt-6 max-h-[65vh] space-y-4 overflow-y-auto pr-2 text-base leading-7 text-slate-300">
+              <p>Administratorem danych jest właściciel projektu LSOgo.</p>
+
+              <p>
+                Dane osobowe przekazywane za pomocą wiadomości e-mail, takie jak
+                imię, adres e-mail czy nazwa parafii, przetwarzane są wyłącznie
+                w celu kontaktu oraz udzielenia odpowiedzi w sprawie projektu
+                LSOgo.
+              </p>
+
+              <p>
+                Podanie danych jest dobrowolne, ale może być niezbędne do
+                uzyskania odpowiedzi lub udziału w kontakcie dotyczącym pilotażu
+                projektu.
+              </p>
+
+              <p>
+                Dane nie są sprzedawane ani udostępniane osobom trzecim, chyba
+                że będzie to wymagane przepisami prawa.
+              </p>
+
+              <p>
+                Każda osoba, której dane dotyczą, ma prawo do dostępu do swoich
+                danych, ich sprostowania, usunięcia, ograniczenia przetwarzania
+                oraz kontaktu w sprawie sposobu ich wykorzystania.
+              </p>
+
+              <p>
+                W sprawach związanych z prywatnością i przetwarzaniem danych
+                można skontaktować się pod adresem e-mail:{" "}
+                <a
+                  href={`mailto:${contact.email}`}
+                  className="text-amber-300 transition hover:text-amber-200"
+                >
+                  {contact.email}
+                </a>
+                .
+              </p>
+            </div>
+
+            <div className="mt-8">
+              <Button
+                href="#"
+                variant="secondary"
+                onClick={(e) => {
+                  e.preventDefault();
+                  setPrivacyModalOpen(false);
+                }}
+              >
+                Zamknij
+              </Button>
+            </div>
+          </div>
+        </div>
+      )}
       {pilotModalOpen && (
         <div
           className="fixed inset-0 z-[100] flex items-center justify-center bg-slate-950/75 px-4 backdrop-blur-sm"
