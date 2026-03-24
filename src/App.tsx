@@ -40,7 +40,7 @@ function App() {
 
             <a
               href="#kontakt"
-              className="hidden rounded-2xl bg-amber-400 px-5 py-3 text-sm font-semibold text-slate-950 shadow-[0_0_20px_rgba(251,191,36,0.3)] transition hover:bg-amber-300 md:inline-flex"
+              className="hidden rounded-2xl bg-amber-400 px-5 py-3 text-sm font-semibold text-slate-950! shadow-[0_0_20px_rgba(251,191,36,0.3)] transition hover:bg-amber-300 md:inline-flex"
             >
               Kontakt
             </a>
