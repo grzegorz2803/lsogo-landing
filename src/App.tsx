@@ -71,7 +71,7 @@ function App() {
                 <a
                   href="#kontakt"
                   onClick={() => setMobileMenuOpen(false)}
-                  className="mt-2 inline-flex items-center justify-center rounded-2xl bg-amber-400 px-5 py-3 text-sm font-semibold text-slate-950 shadow-[0_0_20px_rgba(251,191,36,0.3)]"
+                  className="mt-2 inline-flex items-center justify-center rounded-2xl bg-amber-400 px-5 py-3 text-sm font-semibold text-slate-950! shadow-[0_0_20px_rgba(251,191,36,0.3)]"
                 >
                   Kontakt
                 </a>
