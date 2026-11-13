@@ -57,7 +57,7 @@ export const landingContent = {
     pilot: "Szukam parafii chętnych do wdrożenia pilotażowego systemu.",
     badge: "W przygotowaniu",
     timelineLabel: "Planowana premiera",
-    timelineValue: "Jesień 2026",
+    timelineValue: "Wiosna 2027",
   },
   contact: {
     eyebrow: "Kontakt",

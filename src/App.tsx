@@ -240,11 +240,11 @@ function App() {
       </footer>
       {privacyModalOpen && (
         <div
-          className="fixed inset-0 z-[110] flex items-center justify-center bg-slate-950/80 px-4 backdrop-blur-sm"
+          className="fixed inset-0 z-110 flex items-center justify-center bg-slate-950/80 px-4 backdrop-blur-sm"
           onClick={() => setPrivacyModalOpen(false)}
         >
           <div
-            className="relative w-full max-w-3xl rounded-[2rem] border border-white/10 bg-slate-950/95 p-6 shadow-[0_0_50px_rgba(2,6,23,0.45)] md:p-8"
+            className="relative w-full max-w-3xl rounded-4xl border border-white/10 bg-slate-950/95 p-6 shadow-[0_0_50px_rgba(2,6,23,0.45)] md:p-8"
             onClick={(e) => e.stopPropagation()}
           >
             <button
@@ -321,11 +321,11 @@ function App() {
       )}
       {pilotModalOpen && (
         <div
-          className="fixed inset-0 z-[100] flex items-center justify-center bg-slate-950/75 px-4 backdrop-blur-sm"
+          className="fixed inset-0 z-100 flex items-center justify-center bg-slate-950/75 px-4 backdrop-blur-sm"
           onClick={() => setPilotModalOpen(false)}
         >
           <div
-            className="relative w-full max-w-2xl rounded-[2rem] border border-amber-300/15 bg-slate-950/95 p-6 shadow-[0_0_50px_rgba(2,6,23,0.45)] md:p-8"
+            className="relative w-full max-w-2xl rounded-4xl border border-amber-300/15 bg-slate-950/95 p-6 shadow-[0_0_50px_rgba(2,6,23,0.45)] md:p-8"
             onClick={(e) => e.stopPropagation()}
           >
             <button
